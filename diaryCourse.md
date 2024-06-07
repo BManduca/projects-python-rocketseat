@@ -205,3 +205,72 @@
 
 - Permitem tomar decisões com base em condições e essa decisões irão executar um bloco de código,  
 que vai estar dentro desta condicional
+
+
+# Entrada de dados
+- opção do usuário inserir informações em tempo real de execução de um programa.
+
+## Função input
+- função utilizada para inserção de informações ou dados em uma varíavel, por exemplo
+
+&nbsp;
+
+# Loops
+- É uma estrutura que permite repetir um bloco de código enquanto uma condição for verdadeira
+- São utilizados para automatizar tarefas repetitivas e executar ações repetidas vezes
+- Existem dois tipos de loops: For e While
+    >
+        lista = [1, 2, 3, 4, 5, 6]
+
+        print('\nLISTA')
+        for element in lista:
+            print(f'{element}')
+
+        print('\nTUPLA')
+        tupla = (1, 2, 3, 4, 5, 6)
+        for element in tupla:
+            print(f'{element}')
+
+        print('\nDICIONÁRIO')
+        pessoa = {'nome': 'Brunno', 'sobrenome': 'Manduca', 'idade': 32, 'cidade': 'Florianópolis'}
+
+        print('\nUSO DO FOR APRESENTANDO AS CHAVES DE UM DICIONÁRIO')
+        for key in pessoa.keys():
+            print(f'{key}')
+
+        print('\nUSO DO FOR APRESENTANDO OS VALORES DE UM DICIONÁRIO')
+        for element in pessoa.values():
+            print(f'{element}')
+
+        print('\nUSO DO FOR APRESENTANDO A CHAVE-VALOR DE UM DICIONÁRIO')
+        for key, element in pessoa.items():
+            print(f'{key} => {element}')
+
+## Função range()
+- retorna um intervalo numérico em formato de lista
+- imprimindo valores do 0 ao 9, com uso do range
+    >
+        for i in range(0,10):
+            print(i)
+
+- caso eu quisesse fazer o print dos valores de 0 ao 4, poderia fazer de duas formas:
+    >
+        for i in range(0,5):
+            print(i)
+    
+  OU
+
+- automaticamente já inicia no valor 0
+    >
+        for i in range(5):
+            print(i)
+
+- podemos utilizar juntamente com o range, a função len(), ao qual verifica o tamanho do objeto que esta sendo analisado:
+    >
+        print('\nUSO DA FUNÇÃO RANGE() COM LEN()')
+        for element in range(0, len(lista)):
+            print(f'Elemento {element} => {lista[element]}')
+
+
+## Função enumerate()
+- é uma função poderosa que facilita a tarefa de percorrer uma lista enquanto acompanha os índices de cada elemento

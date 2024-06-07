@@ -125,7 +125,7 @@
         print(minha_lista[2:])
 
 
-## Métodos em listas
+### Métodos em listas
 
 - Append()
     - Adiciona um elemento ao final da lista
@@ -145,3 +145,29 @@
 
 - Sort()
     - organiza a lista de maneira crescente
+
+## Tuplas
+- Coleção ordenada e imutável
+
+- Para acessar os elementos é igual ao da lista, passando a posição desejada
+    >
+        minha_tupla = (1, 2, 3, 4, 4, 5)
+        print(minha_tupla[0])
+        print(minha_tupla[2])
+
+- Nas tuplas, caso precise mostrar ou acessar o último elemento, passamos com index negativo
+    >
+        minha_tupla = (1, 2, 3, 4, 4, 5)
+        print(minha_tupla[-1])
+
+### Métodos em tuplas
+
+- Count()
+    - Retonar a quantidade de vezes que um elemento aparece na tupla
+        >
+            minha_tupla = (1, 2, 3, 4, 4, 5)
+            contagem = minha_tupla.count(4)
+            print('Quantidade de vezes que o elemento 4 aparece: ', contagem)
+
+- Index()
+    - retorna o índice do elemento que procuramos

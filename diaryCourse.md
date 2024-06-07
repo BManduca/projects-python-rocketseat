@@ -102,6 +102,9 @@
     1. True or False => True
     2. False or False => False
 
+&nbsp;
+
+# Estrutura de dados
 
 ## Listas
 - Coleção de elementos ordenáveis e mutáveis
@@ -146,6 +149,8 @@
 - Sort()
     - organiza a lista de maneira crescente
 
+&nbsp;
+
 ## Tuplas
 - Coleção ordenada e imutável
 
@@ -171,3 +176,32 @@
 
 - Index()
     - retorna o índice do elemento que procuramos
+
+&nbsp;
+
+## Dicionários
+- Coleção não ordenda, de pares chave/valor.
+- Dicionários náo são ordenados como nas listas e tuplas.
+
+
+### Métodos em dicionários
+- Para remoção de um objeto [chave: valor], podemos utilizar o del
+
+    >
+        del pessoa['sobrenome']
+
+- Keys()
+    - retorna todas as chaves do nosso dicionário em formato de lista
+
+- values()
+    - Retorna todos os valores do meu dicionário em formato de lista
+
+- items()
+    - Retorna uma lista de tuplas, contendo todos os pares chave-valor do meu dicionário
+
+&nbsp;
+
+# Condicionais
+
+- Permitem tomar decisões com base em condições e essa decisões irão executar um bloco de código,  
+que vai estar dentro desta condicional

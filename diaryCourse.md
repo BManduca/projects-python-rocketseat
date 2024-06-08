@@ -219,6 +219,8 @@ que vai estar dentro desta condicional
 - É uma estrutura que permite repetir um bloco de código enquanto uma condição for verdadeira
 - São utilizados para automatizar tarefas repetitivas e executar ações repetidas vezes
 - Existem dois tipos de loops: For e While
+
+## Loop For
     >
         lista = [1, 2, 3, 4, 5, 6]
 
@@ -246,7 +248,7 @@ que vai estar dentro desta condicional
         for key, element in pessoa.items():
             print(f'{key} => {element}')
 
-## Função range()
+### Função range()
 - retorna um intervalo numérico em formato de lista
 - imprimindo valores do 0 ao 9, com uso do range
     >
@@ -265,12 +267,34 @@ que vai estar dentro desta condicional
         for i in range(5):
             print(i)
 
-- podemos utilizar juntamente com o range, a função len(), ao qual verifica o tamanho do objeto que esta sendo analisado:
+- podemos utilizar juntamente com o range, a função len(), ao qual verifica o tamanho do objeto que esta sendo analisado e também fazer uma manipulação de uma lista:
     >
         print('\nUSO DA FUNÇÃO RANGE() COM LEN()')
         for element in range(0, len(lista)):
             print(f'Elemento {element} => {lista[element]}')
 
+    >
+        lista = [1, 2, 3, 4, 5, 6]
+        for element in range(0, len(lista)):
+            if element == 3:
+                lista[element] = 5
+            else:
+                lista[element] = 0
+            print(f'Elemento {element} => {lista[element]}')
 
-## Função enumerate()
+
+### Função enumerate()
 - é uma função poderosa que facilita a tarefa de percorrer uma lista enquanto acompanha os índices de cada elemento
+
+&nbsp;
+
+## Loop While
+- Tipo de loop utilizado para repetir um bloco de código, enquanto uma condição for verdadeira.
+
+- Utilização do break
+    - serve para forçar a parada do laço diante de alguma situação apresentada dentro do laço.
+    - pode ser utilizado tanto no for quanto no while.
+
+
+# Funções no Python
+- Funções é um bloco de código reutilizado, ou seja, um bloco que é possível reutilizar várias vezes e o mesmo executa uma tarefa específica quando é acionado.

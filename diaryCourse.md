@@ -298,3 +298,37 @@ que vai estar dentro desta condicional
 
 # Funções no Python
 - Funções é um bloco de código reutilizado, ou seja, um bloco que é possível reutilizar várias vezes e o mesmo executa uma tarefa específica quando é acionado.
+
+# Exceções
+- São eventos que ocorrem durante a execução do código e podem interromper o programa, se não tratar as mesmas adequadamente.
+
+## raise
+- Permite que o código seja interrompido propositalmente 
+
+# Módulos
+- São arquivos que contém definições e instruções que podem ser reutilizadas por outros programas.
+
+- Existem duas formas de realizar importação de módulos (as duas tem o mesmo efeito)
+1. import
+    >
+        import math
+
+        raiz_quadrada = math.sqrt(25)
+        print(f'A raiz quadrada de 25 é: {raiz_quadrada}')
+
+2. from
+    - aonde nesta forma, iremos importar somente o que estamos utilizando e isto é uma boa prática.
+
+    >
+        from math import sqrt
+
+        raiz_quadrada = sqrt(25)
+        print(f'A raiz quadrada de 25 é: {raiz_quadrada}')
+
+# Módulos de terceiros
+- iremos utilizar o gerenciamento de pacote pip, para realizar a instalação desses pacotes(módulos)
+
+1. Biblioteca requests
+- é uma bilbioteca que contém uma série de instruções e funções que nos ajudam a fazer requisições http, basicamente requisições em sites da internet
+- instalação: pip3 install requests | para uma versão especifica, podemos rodar o seguinte comando pip3 install requests==2.31.0
+

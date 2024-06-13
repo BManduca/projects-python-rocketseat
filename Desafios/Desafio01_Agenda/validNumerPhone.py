@@ -1,3 +1,4 @@
+from styleTextModule import jumpLine
 import time
 import sys
 
@@ -7,19 +8,22 @@ def validationPhone(number_phone):
         if len(number_phone) != 11:
             raise ValueError
         else:
-            # caso tenha letrar ou caracteres, causa um ValueError
+            # caso tenha letra ou caracteres, causa um ValueError
             number_phone = int(number_phone)
 
     except ValueError:
         if len(number_phone) == 0:
-            print('VOCÊ NÃO INSERIU O TELEFONE!')
+            print('ERRO NO CADASTRO, VOCÊ NÃO INSERIU O TELEFONE!')
             time.sleep(3)
+            jumpLine()
             sys.exit('ENCERRANDO SISTEMA DE CADASTRO...')
         else:
-            print('TELEFONE INVÁLIDO! O TELEFONE PRECISA TER 11 DÍGITOS!')
+            jumpLine()
+            print('ERRO NO CADASTRO, O TELEFONE É INVÁLIDO!\nO TELEFONE PRECISA TER 11 DÍGITOS!')
             time.sleep(3)
+            jumpLine()
             sys.exit('ENCERRANDO SISTEMA DE CADASTRO...')
-        
+    return number_phone
 
 def printFormattedPhone(formatted_number):
     # caso tenha letrar ou caracteres, causa um ValueError
@@ -27,4 +31,4 @@ def printFormattedPhone(formatted_number):
     formatted_number = str(formatted_number)
 
     phoneNumber = f'({formatted_number[0:2]}){formatted_number[2:7]}-{formatted_number[7:]}'
-    print(phoneNumber)
+    return phoneNumber

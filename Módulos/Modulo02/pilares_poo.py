@@ -1,5 +1,6 @@
 from modules.styleModule import jumpLine, printTextCentralized, imprimirLinha
 from os import system
+from abc import ABC, abstractmethod
 import time
 
 # HERANÇA E POLIMORFISMO
@@ -151,15 +152,3 @@ contaBrunno = ContaBancaria(saldo=1000)
 if __name__ == '__main__':
     main()
 
-# jumpLine()
-# imprimirLinha(2,20)
-# printTextCentralized('ACESSANDO CONTA BANCÁRIA',60,2)
-# imprimirLinha(2,20)
-# jumpLine()
-# saque = float(input('INSIRA O VALOR PARA REALIZAR O SAQUE: '))
-# contaBrunno.sacar(saque)
-# jumpLine()
-# deposito = float(input('INSIRA O VALOR QUE GOSTARIA DE DEPOSITAR: '))
-# contaBrunno.depositar(deposito)
-# jumpLine()
-# print(f'SALDO TOTAL DA CONTA É DE R$ {contaBrunno.consultar_saldo()} REAIS.')

@@ -437,4 +437,39 @@ que vai estar dentro desta condicional
 
 #### Abstração
 
-- 
+- Classe abstrata: não tem a capacidade de criar objetos diretamente dela, por exemplo:
+  - não consigo criar uma classe abstrata de animal e criar um cachorro
+  - um objeto a partir dela
+  - Não consigo criar uma instância de uma classe abstrata, ela so serve como um molde, para outras classes.
+  - Isso ajuda a proteger, as características, que são os atríbutos e os métodos que uma classe tem que respeitar, quando ela for criada. [09:23]
+
+  - não possui implementação, ela é somente um molde, mas para que este molde funcione, é preciso passar um decorador:
+    >
+        @abstractmethod # um decorador
+        def ligar(self):
+            pass
+
+#### Herança múltipla
+
+- é um conceito poderoso na programação orientada a objetos que permite que uma classe herde atributos e métodos de mais de uma classe base
+
+- super() -> é uma função padrão, que chama a implementação da classe mãe.
+
+### Decoradores
+
+- São nativos do python, como por exemplo, o abstractmethod
+- Tipo especial de função, que vai permitir modificar ou estender o comportamento de outras funções
+- Basicamente, utilizando o decorador adicionar funcionalidades a funções ou métodos que não necessariamente precisa alterar o código original da função
+- utilização:
+    >
+        def meu_decorador(func):
+            def wrapper():
+                jumpLine()
+                printTextCentralized('ANTES DA MINHA FUNÇÃO SER CHAMADA',20,4)
+                func()
+                printTextCentralized('DEPOIS DA MINHA FUNÇÃO SER CHAMADA',20,4)
+            return wrapper
+
+        @meu_decorador
+        def minha_funcao():
+            printTextCentralized('MINHA FUNÇÃO FOI CHAMADA!',20,3)

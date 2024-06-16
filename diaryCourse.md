@@ -473,3 +473,29 @@ que vai estar dentro desta condicional
         @meu_decorador
         def minha_funcao():
             printTextCentralized('MINHA FUNÇÃO FOI CHAMADA!',20,3)
+
+- Decoracores como classe:
+  - geralmente são utilizadosem bibliotecas
+  - em vez de ser criado como função, o mesmo é criado como classe.
+        >
+            class MeuDecoradorDeClasses:
+                def __init__(self, func) -> None:
+                    self.func = func
+
+                def __call__(self) -> Any:
+                    jumpLine()
+                    printTextCentralized('ANTES DA FUNÇÃO SER CHAMADA (DECORADOR DE CLASSE)',60,4)
+                    self.func()
+                    printTextCentralized('DEPOIS DA FUNÇÃO SER CHAMADA (DECORADOR DE CLASSE)',60,4)
+
+- Decoradores comuns:
+  - class method
+    - utilizamos através do @classmethod e passamos como argumento o cls, como é o self que receb a instância, o cls ira receber a classe, desta forma teremos acesso a todos os atríbutos e métodos da classe
+    - Ao utilizarmo o class method, não precisamos de uma instância para rodar e ter acesso ao atríbutos e métodos, podemos usar a classe inteira, a classe direta sem criar uma instância, so precisa lembrar de adicionar o cls como argumento.
+
+  - static method
+    - Não recebe nenhum argumento, isso que diferencia ele do método da instância e do método da classe, sendo assim, ele não tem acesso aos atríbutos da intância e nem aos atríbutos da classe, mas ele podeacessar uma função específica presente nele.
+
+    - Sinal para esse método, é que se perceber que está criando muitos métodos estáticos, isso não é um bom sinal de programação
+
+    

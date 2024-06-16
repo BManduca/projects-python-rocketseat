@@ -16,7 +16,7 @@ def minha_funcao():
 minha_funcao()
 
 
-# decorador como classe
+# decorador como classe -> utilizado geralmente em bibliotecas
 
 class MeuDecoradorDeClasses:
     def __init__(self, func) -> None:

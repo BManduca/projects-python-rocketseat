@@ -501,4 +501,3 @@ que vai estar dentro desta condicional
     - Programadores que geralmente saem da programação funcional e vai para a orientada a objetos, tendem a pensar muito nessa questão:
       - comportamento das funções vs. classes, métodos e atríbutos
 
-    

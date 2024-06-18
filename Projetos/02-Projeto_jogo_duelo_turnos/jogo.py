@@ -1,5 +1,6 @@
 from styleGameModule import jumpLine, printTextCentralized, imprimirLinha
 import time
+import random
 from os import system
 
 # Personagem: classe mãe
@@ -41,7 +42,8 @@ class Personagem:
             self.__vida = 0
 
     def attack(self, target):
-        damage = self.__nivel * 2
+        # baseado no nível do personagem
+        damage = random.randint(self.get_level() * 2, self.get_level() * 4)
         target.receive_attack(damage)
         jumpLine()
         imprimirLinha(6,30)
@@ -66,7 +68,7 @@ class Heroi(Personagem):
 
     def special_attack(self, target):
         # dano aumentado
-        damage = self.get_level() * 5
+        damage = random.randint(self.get_level() * 5, self.get_level() * 8)
         target.receive_attack(damage)
         jumpLine()
         imprimirLinha(7,30)
@@ -88,10 +90,12 @@ class Inimigo(Personagem):
         imprimirLinha(2,30)
 
 class Game:
+    round = 0
+
     ''' CLASSE ORQUESTRADORA DO JOGO '''
     def __init__(self) -> None:
         self.heroi = Heroi(nome='Homem-aranha', vida=100, nivel=6, habilidade='Soco venom')
-        self.inimigo = Inimigo(nome='Kraven', vida=80, nivel=6, tipo='Caçador')
+        self.inimigo = Inimigo(nome='Kraven', vida=120, nivel=6, tipo='Caçador')
 
     def play_battle(self):
         ''' REALIZAR A GESTÃO DA BATALHA EM TURNOS '''
@@ -101,6 +105,10 @@ class Game:
         jumpLine()
 
         while self.heroi.get_life() > 0 and self.inimigo.get_life() > 0:
+            self.round += 1
+            imprimirLinha(4,30)
+            printTextCentralized(f'RODADA {self.round}',90,4)
+            imprimirLinha(4,30)
             imprimirLinha(5,30)
             printTextCentralized('DETALHES DOS PERSONAGENS: ',90,5)
             imprimirLinha(5,30)
@@ -121,6 +129,7 @@ class Game:
 
             # inimigo atacando o heroi
             if self.inimigo.get_life() > 0:
+                # inimigo ataca o herói
                 self.inimigo.attack(self.heroi)
 
             time.sleep(4)

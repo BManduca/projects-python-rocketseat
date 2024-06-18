@@ -496,6 +496,9 @@ que vai estar dentro desta condicional
   - static method
     - Não recebe nenhum argumento, isso que diferencia ele do método da instância e do método da classe, sendo assim, ele não tem acesso aos atríbutos da intância e nem aos atríbutos da classe, mas ele podeacessar uma função específica presente nele.
 
-    - Sinal para esse método, é que se perceber que está criando muitos métodos estáticos, isso não é um bom sinal de programação
+    - Um alerta: Para este tipo específico de decorador, porque ao perceber que está criando muitos métodos estáticos, isso não é um bom sinal de programação
+
+    - Programadores que geralmente saem da programação funcional e vai para a orientada a objetos, tendem a pensar muito nessa questão:
+      - comportamento das funções vs. classes, métodos e atríbutos
 
     

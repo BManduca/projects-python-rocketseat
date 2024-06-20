@@ -62,7 +62,7 @@ ou
 - Rest é um estilo de arquitetura, para o desenvolvimento de API's
 - Siginifica que ele tem um conjunto de regras, que vai permitir que essa comunicação aconteça de forma fluída.
 - Protocolos HTTP e/ou HTTPS
-  - Operações ou Métodos:
+  - Operações ou Métodos -> HTTP Verbs:
     - GET
     - POST
     - PUT
@@ -74,3 +74,64 @@ ou
 ## API vs. API Restful
 
 - Quando uma API ela respeita todos os fundamentos do Rest, ela é nomeada como uma API Restful.
+
+## [Métodos de Requisição HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods)
+
+- HTTP Verbs:
+  - GET: Solicita representação de um recurso específico. **Requisições** utilizando o método GET devem retornar apenas dados.
+
+  - POST: É utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor
+
+  - PUT: Substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+
+  - DELETE: Remoce um recurso específico.
+
+  - PATCH: É utilizado para aplicar modificações parciais em um recurso.
+
+## [Códigos de Status de respostas HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
+
+- As respostas são agrupadas em cinco faixas:
+
+  - Respostas afirmativas -> 100 a 199
+
+  - Respostas bem-sucedidas -> 200 a 299
+
+  - Mensagens de redirecionamento -> 300 a 399
+
+  - Respostas de erro do cliente -> 400 a 499
+
+  - Respostas de erro do servidor -> 500 a 599
+
+
+## Documentação de API
+
+- É importante em dois momentos:
+
+  1. A documentação é importante antes da API ser construída, para que possamos ter toda a visualização de como os endpoints vão funcionar, quais sào os tipos de respostas e quais são os tipos de parâmetros que podemos receber.
+
+  2. É quando a API já foi construída é importante, pois diversos interessados (stakeholders) na API farão o uso da documentação para entender como a API funciona.
+
+- Swagger: Uma das principais ferramentas de documentação de API.
+
+## GIt, Github x Gitlab x Bitbucket
+
+- Git: Software de versionamento de código
+
+  - [Instalação/Download](https://www.git-scm.com/download/mac):
+    - brew install git => maneira que eu utilizei no momento
+
+- Softwares que utilizam do git por trás:
+  - Github
+
+  - Gitlab: Utiliza o GIt por trás, porém, o que diferencia ele do Github, por exemplo é que ele tem uma esteira de CI e CD para implementação do código e tudo meio que acoplado.
+    - Amplamente utilizado em empresas.
+
+  - Bitbucket: Também tem o Git por trás e também muito utilizado por empresas, porque ele tem também uma grande intergração com outro software, chamado Jira que serve para fazer controle de atividade dentro dele, principalmente quem roda em métodos ágeis e tudo mais.
+
+## COMMANDS GIT
+
+- Segue uma pequena lista dos comandos para utilizar o [Git](https://github.com/joshnh/Git-Commands/blob/master/READMEpt.md)
+
+## DOCS
+
+- Nos casos de registros de alterações, documentações ou ate criação de readme, geralmente é utilizado o padrão [markdown](https://www.markdownguide.org/basic-syntax/), o qual facilita muito a manipulação dos documentos e também bem mais apresentável.

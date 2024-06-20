@@ -26,8 +26,51 @@
 - Usos conhecidos: Pinterest, LinkedIn, Netflix e Uber.
 
 ### Instalação
+
 - pip3 install Flask, aonde podemos caso necessário passar uma versão especifica.
 
 ou
 
 - criando um arquivo de requisitos e instalando as dependências através do comando pip3 install -r requirements.txt
+
+### Criando arquivo app
+
+- inicialmene criamos o arquivo principal chamado app e nele importamos o flask e criamos uma var app, utilizamos a classe Flask, para criar passando uma varíavel geralmente como __ name __ e quando executamos de modo manual, o __ name __  recebe o valor main
+    >
+      from flask import Flask
+
+      app = Flask(__name__)
+
+### Rotas
+
+- É como conseguimos comunicar com outros clientes, seja um usuário querendo algum tipo de informação ou usuário acessando aqui via navegador a rota
+- A rota ela permite que seja criado uma comunicação, ou seja, receba informações e também devolva informações para quem está solicitando.
+- É importante sempre fazer a verificação de que o name seja igual a main e apartir desta verificação, executar nosso programa, pois isto significa que estamos trabalhando localmente.
+
+## API (Application Programming Interface)
+
+- Basicamente a palavra chave em API, é o interface, ou seja, uma porta de entrada, uma forma de estabelecer comunicação.
+- CLIENTE --REQUEST--> [ API <--> API Server ]
+- O Cliente ele faz uma request para a API, que envia a requisição para o servidor da API e depois que a informação chegar, o servidor vai responder de volta para a API e assim, a mesma responde (response) para o cliente com a informação que ele espera.
+
+  ![](./assets/FLUXO_API.png)
+
+- API basicamente é um conjunto de regras, protocolos e ferramentas que permitem que diferentes softwares se comuniquem entre si
+
+## API Rest (Representational State Transfer)
+
+- Rest é um estilo de arquitetura, para o desenvolvimento de API's
+- Siginifica que ele tem um conjunto de regras, que vai permitir que essa comunicação aconteça de forma fluída.
+- Protocolos HTTP e/ou HTTPS
+  - Operações ou Métodos:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+
+- A resposta(response) no estilo REST, obrigatoriamente utilizamos o JSON ou o XML para retornar as informações.
+
+## API vs. API Restful
+
+- Quando uma API ela respeita todos os fundamentos do Rest, ela é nomeada como uma API Restful.

@@ -135,3 +135,67 @@ ou
 ## DOCS
 
 - Nos casos de registros de alterações, documentações ou ate criação de readme, geralmente é utilizado o padrão [markdown](https://www.markdownguide.org/basic-syntax/), o qual facilita muito a manipulação dos documentos e também bem mais apresentável.
+
+## CRIANDO AS 'VERB ACTIONS' DO PROJETO
+
+- CRIANDO UMA TAREFA
+    >
+      @app.route('/tasks', methods=['POST'])
+      def create_task():
+        global task_id_control
+        data = request.get_json()
+        new_task = Task(id=task_id_control,title=data.get('title'), description=data.get('description',''))
+        task_id_control += 1
+        tasks.append(new_task)
+        print(tasks)
+        return jsonify({'message': 'Nova tarefa criada com sucesso'})
+
+- LISTANDO TODAS AS TAREFAS
+
+  &nbsp;
+
+  - PRIMEIRA FORMA DE RETORNAR TODA A LISTA
+      >
+        app.route('/tasks', methods=['GET'])
+        def get_tasks():
+            task_list = []
+            for task in tasks:
+                task_list.append(task.to_dict())
+
+            output = {
+                "tasks": task_list,
+                "total_tasks": 0
+            }
+
+            return jsonify(output)
+
+  &nbsp;
+
+  - SEGUNDA FORMA DE RETORNAR TODA A LISTA
+      >
+        @app.route('/tasks', methods=['GET'])
+        def get_tasks():
+            task_list = [task.to_dict() for task in tasks ]
+
+            output = {
+                "tasks": task_list,
+                "total_tasks": 0
+            }
+
+            return jsonify(output)
+
+    - Nesta forma estamos criando uma lista aonde estamos iterando cada task presente nas tasks e retornando a cada iteração, o task.to_dict()
+
+- LISTANDO UMA TAREFA EM ESPECÍFICO ATRAVÉS DO ID
+  - após a criação da rota, passaremos um identificador através dos sinais de <>, passando duas informações, onde a primeira será o tipo do parâmetro que será recebido e a segunda informação será o nome dado para a informação. Logo em seguinda passamos o método que será utilizado.
+      >
+        @app.route('/tasks/<int:id>', methods=['GET'])
+        def get_task(id):
+            for t in tasks:
+                if t.id == id:
+                    return jsonify(t.to_dict())
+                
+            return jsonify({'message':'Não foi possível encontrar a atividade'}), 404
+
+- [PARÂMETROS DE ROTAS NO FLASK](https://flask.palletsprojects.com/en/3.0.x/quickstart/#routing)
+  - Permite que receba na rota alguma varíavel dos seus usuários/clientes que estão fazendo a requisição.

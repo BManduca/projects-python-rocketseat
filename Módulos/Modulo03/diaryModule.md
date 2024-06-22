@@ -202,3 +202,21 @@ ou
 
 
 - [Testes Automatizados](https://docs.pytest.org/en/stable/getting-started.html#install-pytest)
+
+- Conforme podemos ver no exemplo a seguir presente na documentação:
+    >
+      # content of test_sample.py
+      def func(x):
+          return x + 1
+
+
+      def test_answer():
+          assert func(3) == 5
+
+  - É usado o termo reservado 'assert' para validar se o teste será bem sucedido.
+
+
+- Execução dos testes:
+  - ir ate onde foi criado o arquivo de teste -> pytest (nome_arquivo).py -v
+    - o argumento -v serve para retornar detalhar tudo que vai estar acontecendo.
+    

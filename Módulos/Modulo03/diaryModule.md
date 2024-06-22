@@ -199,3 +199,6 @@ ou
 
 - [PARÂMETROS DE ROTAS NO FLASK](https://flask.palletsprojects.com/en/3.0.x/quickstart/#routing)
   - Permite que receba na rota alguma varíavel dos seus usuários/clientes que estão fazendo a requisição.
+
+
+- [Testes Automatizados](https://docs.pytest.org/en/stable/getting-started.html#install-pytest)

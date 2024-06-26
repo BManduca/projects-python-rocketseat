@@ -13,6 +13,18 @@
 - Durante o projeto, estarei utilizando o SQL Alchemy, que é uma extensão do Flask que suporta o SQL ALchemy.
   - O SQL Alchemy é um ORM (Object Relational Mapper), que permite abstrair as funções do banco de dados e facilita a troca de banco de dados no futuro.
 
-- O Flask SQL Alchemy não é um **Banco de Dados**. Ele é apenas uma ferramenta ORM que ajuda a conectar e realizar as interações dentro do projeto.
+- O [Flask SQL Alchemy](https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/) não é um **Banco de Dados**. Ele é apenas uma ferramenta ORM que ajuda a conectar e realizar as interações dentro do projeto.
 
 - Durante o projeto, foi orientado a utilização do SQLite, que é uma ótima opção para projetos de desenvolvimento, segundo o Professor, pois é leve e fácil de usar. No entanto, não é adequado para aplicação em produção, devido as limitações de gerenciamento de requisições concorrentes.
+
+## Pontos importantes
+
+- Para organizar melhor a estrutura do nosso código, estarei trabalhando com a estrutura de módulos e componentes em aplicações separadas
+- Escrever todo nosso código em um arquivo só, não é considerado uma boa prática.
+- Um exemplo claro, é que estaremos criando uma pasta models, dentro da nossa aplicação e logo em seguida, criamos o model usário.
+
+  ![](./assets/repository_models_user.png)
+
+- Para este caso não teremos problema ao importar o db dentro do arquivo 'user.py', porque a codicional de inicialização da applicação esta dentro do arquivo 'app.py'
+- É muito comum e importante saber que arquivos importem variáveis de dentro do arquivo app, isso é muito comum no Flask.
+- Organizar componentes com base na taxa de atualização.

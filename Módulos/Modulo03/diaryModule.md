@@ -1,5 +1,9 @@
 # Módulo 03
 
+ **obs.:** PARA RODAR O PROJETO QUE ESTA NA PASTA 'TASKS_FLASK_CRUD', PRECISAR INSTALAR AS DEPEDÊNCIAS PRESENTES NO ARQUIVO 'REQUIREMENTS.TXT', QUE PODE SER EXECUTADO DA SEGUINTE FORMA: pip3 install -r requirements.txt
+
+&nbsp;
+
 - Módulo para desenvolvimento de API's com flask
 - Neste módulo será abordado a questão das api's:
   - O que é uma API

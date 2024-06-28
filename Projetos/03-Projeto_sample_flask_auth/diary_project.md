@@ -28,3 +28,46 @@
 - Para este caso não teremos problema ao importar o db dentro do arquivo 'user.py', porque a codicional de inicialização da applicação esta dentro do arquivo 'app.py'
 - É muito comum e importante saber que arquivos importem variáveis de dentro do arquivo app, isso é muito comum no Flask.
 - Organizar componentes com base na taxa de atualização.
+
+## Classe UserMixIn
+
+- Importada da biblioteca flask_login
+- Essa classe ela traz todas as informações ou métodos prontos para interagir com as informações passadas na autenticação do usuário, como por exemplo, autenticação do usuário, se o usuário está ativo ou não e muitas outras.
+
+## Criação do Banco de dados (DB)
+
+- no terminal acessar o shell do flask => flask shell
+- ao acessarmos, estaremos rodando uma instância da minha aplicação, ou seja, é como se eu estiversse dentro do meu código em tempo real.
+- Criando o DB
+    >
+      db.create_all()
+
+  - Este comando vai criar meu banco de dados.
+
+- Porém temos que nos preocupar com uma outra questão, que é a seguinte:
+  - Todo banco de dados quando abrimos uma conexão com ele, o mesmo cria um conceito que chamamos de session
+  - Esta session armazena nossa conexão ativa, ou seja, quando eu abro a conexão com o banco de dados, que tem um tempo limite, tem as propriedades da mesma, temos que nos preocupar com a session, pois é com a session que conseguimos de fato dar os comandos dentro do meu banco de dados.
+
+- Quando nos conectamos com banco de dados, criamos uma sessão e quando saimos, a mesma se fecha.
+- Não é orientador ter muitas sessões abertas do banco de dados.
+- Cada banco de dados tem suas peculiaridades, alguns aguentam muitas sessões simultâneas e outros não.
+- db.session => instância dentro do nosso db
+- através dele temos acesso a outro método, que é o commit()
+    >
+      db.session.commit()
+
+  - esse commit() é bem parecido com o commit do git, basicamemte o que ele faz, é pegar tudo que foi feito na sessão que está ativa e vai de fato executar o comando no banco de dados.
+
+  - esse comando é uma característica que precisamos prestar atenção, principalmente no tipo de banco que estamos trabalhando, que no caso é o relacional, que armazena informações em tabelas e essas tabelas podem se relacionar entre si.
+
+## Biblioteca [Flask-login](https://flask-login.readthedocs.io/en/latest/)
+
+- Essa biblioteca fornece um gerenciamento da seção de usuário.
+- Permite que seja disponibilizado um login e um logout para o usuário, proteger algumas rotas, para que somente usuários logados conseguem acessar e também extender essas funcionalidades, como por exemplo, permissões e tudo mais.
+
+- Importação:
+    >
+      from flask_login import LoginManager
+
+  - A Classe LoginManager, é responsável por fazer o gerenciamento da gestão do usuário.
+  

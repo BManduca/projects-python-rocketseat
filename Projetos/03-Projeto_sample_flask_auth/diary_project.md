@@ -65,9 +65,39 @@
 - Essa biblioteca fornece um gerenciamento da seção de usuário.
 - Permite que seja disponibilizado um login e um logout para o usuário, proteger algumas rotas, para que somente usuários logados conseguem acessar e também extender essas funcionalidades, como por exemplo, permissões e tudo mais.
 
-- Importação:
+- Importação loginManger:
     >
       from flask_login import LoginManager
 
   - A Classe LoginManager, é responsável por fazer o gerenciamento da gestão do usuário.
+
+- login_user()
   
+  - realizar procedimento de autenticação do usuário.
+
+- current_user
+  
+  - Recuperando o usuário 'current', após a autenticação.
+  - uma propriedade que pode auxiliar neste processo, é o is_authenticated
+
+- user_loader(callback)
+  
+  - Vai carregar a seção do usuário
+  - Essa função tem que retornar o ID do usuário e isso vai permitir que verifique o mesmo em várias outras etapas.
+
+## Criando um registro user no banco
+
+- acessar shell => flask shell
+- criar um user
+  - user = User(username="admin", password="123")
+
+- usando o SQLALchemy para cadastrar:
+  - Através da session e do método add
+      >
+        db.session.add(user)
+
+    - basicamente adicionou no banco de dados um objeto recem criado.
+
+- Realizar o commit() para salvar no banco.
+    >
+      db.session.commit() 

@@ -101,3 +101,18 @@
 - Realizar o commit() para salvar no banco.
     >
       db.session.commit() 
+
+## Função logout_user()
+
+- Função importada da biblioteca flask_login
+- Precisamos ter ciência que nesta função temos que ter o entendimento que para ser efetuado o logout, inicialmente o usuário precisa ter feito o login
+- Para isso o flask_login ele ajuda a verificar e proteger a rota '/logout' que criamos, de usuários que não estão autenticados.
+- Através do decorator login_required, conseguimos utilizar o mesmo em cima da declaração da função de logout, para que assim, a rota seja protegida dos usuários não autenticados.
+- Após 'acessar' rota de logout, ou seja, ter efetuado logout do usuário, basicamente a session será 'limpada', aonde o navegador enviará um sinal para que os cookies sejam limpos e a partir dai não teremos mais as informações do usuário que estava logado
+- Justamente isso reflete no controle interno da ferramenta.
+
+## Abordagens sistemas de cadastro
+
+- Cadastro interno, ou seja, so podem ser cadastrados pessoas apartir de uma pessoa que já esteja autenticada e ai sim temos um tipo de sistema muito mais direcionado para empresas e sistemas internos de empresas.
+
+- Sistemas empresariais, aonde é permitido qualquer um se registrar, com um nível de acesso mais baixo, ou seja, o usuário pode se registrar no sistema, mas não pode realizar uma inserção no sistema, uma edição ou deleção, pois, essas ações são voltadas para as pessoas que tem um nível mais elevado.

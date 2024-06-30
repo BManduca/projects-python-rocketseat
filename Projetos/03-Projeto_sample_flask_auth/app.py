@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from models.user import User
 from database import db
-from flask_login import LoginManager, login_user, current_user
+from flask_login import LoginManager, login_user, current_user, logout_user, login_required
 
 app = Flask(__name__)
 '''
@@ -46,6 +46,27 @@ def login():
             return jsonify({'message': 'AUTENTICAÇÃO REALIZADA COM SUCESSO!'})
     
     return jsonify({'message': 'CREDENCIAIS INVÁLIDAS!'}), 400
+
+@app.route('/logout', methods=['GET'])
+@login_required
+def logout():
+    logout_user()
+    return jsonify({'message': 'LOGOUT REALIZADO COM SUCESSO!'})
+
+@app.route('/user', methods=['POST'])
+@login_required
+def create_user():
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+
+    if username and password:
+        user = User(username=username, password=password)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify({'message': 'USUÁRIO CADASTRADO COM SUCESSO!'})
+
+    return jsonify({'message': 'DADOS INVÁLIDOS!'}), 400
 
 @app.route('/hello-word', methods=['GET'])
 def hello_word():

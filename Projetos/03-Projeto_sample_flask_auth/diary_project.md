@@ -116,3 +116,7 @@
 - Cadastro interno, ou seja, so podem ser cadastrados pessoas apartir de uma pessoa que já esteja autenticada e ai sim temos um tipo de sistema muito mais direcionado para empresas e sistemas internos de empresas.
 
 - Sistemas empresariais, aonde é permitido qualquer um se registrar, com um nível de acesso mais baixo, ou seja, o usuário pode se registrar no sistema, mas não pode realizar uma inserção no sistema, uma edição ou deleção, pois, essas ações são voltadas para as pessoas que tem um nível mais elevado.
+
+## Curiosidades
+
+- Uma curiosidade sobre o próprio flask, que no caso se o usuário esquecer de repassar uma informação na hora de realizar a requisição, o próprio flask, efetua o lembrete através de uma mensagem de advertência, mostrando que faltou informações no momento de realizar a requisição.

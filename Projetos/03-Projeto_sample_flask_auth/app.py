@@ -116,10 +116,3 @@ def delete_user(id_user):
     
     return jsonify({'message': 'USUÁRIO NÃO ENCONTRADO!'}), 404
 
-
-@app.route('/hello-word', methods=['GET'])
-def hello_word():
-    return 'Hello World'
-
-if __name__ == '__main__':
-    app.run(port=8000, debug=True)

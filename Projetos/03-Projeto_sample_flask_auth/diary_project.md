@@ -120,3 +120,31 @@
 ## Curiosidades
 
 - Uma curiosidade sobre o próprio flask, que no caso se o usuário esquecer de repassar uma informação na hora de realizar a requisição, o próprio flask, efetua o lembrete através de uma mensagem de advertência, mostrando que faltou informações no momento de realizar a requisição.
+
+- Em questão de banco de dados, aplicações grandes estão muito ligadas a justamente a bancos conhecidos, como bancos da Oracle como o MySQL, o Postgres e muuitos outros.
+
+## Utilizando o banco de dados MySQL
+
+- Gerenciamento de banco muito utilizado no mercado
+- Banco open-source
+- Sistema de gerenciamento completo
+- Banco relacional, ou seja, armazenamos os dados(informações) em tabelas, com linhas e colunas e conseguimos relacionar essas tabelas.
+
+- Para atualizar nosso banco para o MySQL:
+
+  - Como estamos utilizando um ORM, a atualização será bem mais simples
+  - Primeiro de tudo, iremos instalar as bibliotecas PyMySQL e Cryptography, adicionando as mesmas no arquivo requirements.txt e depois rodando o comando pip3 install -r requirements.txt --update  
+  - Existem diversas maneiras de rodar o MySQl, mas a maneira mais fácil, é utilizando o Docker
+  - Basicamente para realizar a instalação docker, basta seguir esse step-by-step:
+    - [Instalação Docker](https://docs.docker.com/desktop/install/mac-install/)
+    Obs.: neste link tem instalação para todos os OS, mas eu deixei o do Mac, que é o qual eu uso neste momento.
+
+## Docker
+
+- Para que o uso do cker funcione como esperado, teremos um arquivo no projeto chamado docker-compose.yml
+- Neste arquivo teremos um serviço chamado db, com uma image, que basicamente diz o que irei subir no meu docker, como por exemplo, neste projeto estaremos utilizando mysql, então a nossa image, será mysql, na última versão possível
+- Após essa parte, temos algumas configurações, como por exemplo, quando que o docker precisa ser reiniciado(restart)
+- Temos as nossas varíaveis de ambiente, aonde basicamente é definido o nome do usuário, a senha, o nome do banco e uma senha root.
+- Temos também informações da porta que iremos acessar a aplicação
+- Uma das informações mais importantes, que é a informação de volume, ou seja, aonde iremos armazenar as informações de forma persistente, caso esse compartilhamento de volume não seja 'passado', toda vez que for subir o container, ele vai armazenar as informações somente enquanto o docker estiver rodando, em outras palavras o que é feito é mapear uma pasta em meu sistema para dentro do container e assim, tudo que for criado no container vai ser armazenado na pasta escolhida, persistindo os dados, como mencionado.
+

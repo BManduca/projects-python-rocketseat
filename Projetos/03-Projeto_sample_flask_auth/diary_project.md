@@ -147,4 +147,18 @@
 - Temos as nossas varíaveis de ambiente, aonde basicamente é definido o nome do usuário, a senha, o nome do banco e uma senha root.
 - Temos também informações da porta que iremos acessar a aplicação
 - Uma das informações mais importantes, que é a informação de volume, ou seja, aonde iremos armazenar as informações de forma persistente, caso esse compartilhamento de volume não seja 'passado', toda vez que for subir o container, ele vai armazenar as informações somente enquanto o docker estiver rodando, em outras palavras o que é feito é mapear uma pasta em meu sistema para dentro do container e assim, tudo que for criado no container vai ser armazenado na pasta escolhida, persistindo os dados, como mencionado.
+- Para configurar o nosso banco, faremos da seguinte forma:
+    >
+      app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3307/flask-crud'
 
+- Após a configuração, em nosso terminal aplicaremos os seguintes comandos:
+  - flask shell -> para abrir o shell
+  - db.create_all() -> para criar todo nosso banco
+  - db.session.commit() -> aplicando o commit
+  - saindo do shell -> exit()
+
+
+## Perfis no sistema de autenticação / Gerenciamento de perfil
+
+- Geralmente sistemas, que tem parte de autenticação, possuem perfis que vão definir se o usuário pode ou não fazer a utilização de uma rota específica.
+- Exemplo de perfis: Administrador e Usuário

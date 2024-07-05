@@ -162,3 +162,26 @@
 
 - Geralmente sistemas, que tem parte de autenticação, possuem perfis que vão definir se o usuário pode ou não fazer a utilização de uma rota específica.
 - Exemplo de perfis: Administrador e Usuário
+
+## Criptografia de senhas
+
+- Importante quando é trabalhado com informações sensíveis, que justamente seja feito uma criptografia, para proteger de acessos indevidos oude pessoas que não estejam autorizadas, caso elas venham a ter acesso.
+- Biblioteca para realizar este controle -> [bcrypt](https://pypi.org/project/bcrypt/)
+  - Biblioteca que vai ajudar em criar um hash, ou seja, uma sequência de valores criptografados para todas as senhas presentes em nosso banco.
+  - instalação: pip3 install bcrypt
+
+- Exemplo de utilização:
+  >
+      import bcrypt
+
+      password = b"super secret password"
+      # Hash a password for the first time, with a randomly-generated salt
+  
+      hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+      # Check that an unhashed password matches one that has previously been
+      # hashed
+
+      if bcrypt.checkpw(password, hashed):
+        print("It Matches!")
+      else:
+        print("It Does not Match :("))

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_USER: 'admin_manduca'
+      MYSQL_DATABASE: 'daily-diet-api'
+      MYSQL_ROOT_PASSWORD: 'mand_42#21'
+      MYSQL_TCP_PORT: '3308'
+    ports:
+      - "3308:3308"
+    expose:
+      # Opens port 3308 on the container
+      - '3308'
+    volumes:
+      - /Users/brunnomanduca/Documents/dev/daily-diet-api/mysql:/var/lib/mysql

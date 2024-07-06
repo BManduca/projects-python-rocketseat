@@ -10,7 +10,7 @@ app = Flask(__name__)
     - utilizado pelo flask para proteger as informações armazenadas
 '''
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:admin123@127.0.0.1:3307/flask-crud'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:mand_42#21@127.0.0.1:3307/flask-crud'
 
 login_manager = LoginManager()
 db.init_app(app)

@@ -70,16 +70,21 @@
         # quit flask shell
         exit()
 
-### 🛠️ Ferramentas utilizadas no desafio:
+## 🛠️ Ferramentas utilizadas no desafio:
 
 - Flask
 - Flask SQL Alchemy
 - Werkzeug
 - pymysql
 
-### 📚 Conceitos utilizados no projeto:
+## 📚 Conceitos utilizados no projeto:
 
 - Criação do banco de dados.
 - Criar, alterar, listar e deletar dados no banco.
 - Fazer validação de requisições.
 - Validar questão de chave primária e estrangeira, no momento de fazer as consultas.
+
+## DOCUMENTATION API
+
+- Espaço para registro de toda [documentação](https://documenter.getpostman.com/view/7606860/2sA3e1BqHh) desenvolvida para uso e teste da API criada neste desafio.
+- Para construção da documentação, foi utilizado o Postman.

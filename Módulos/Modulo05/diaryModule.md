@@ -57,7 +57,12 @@
    - /payments/pix/confirmation
      - para o método pix, toda vez que ele é efetuado/gerado, a instituição recebe a informação dizendo se esta tudo certo e que o pagamento foi efetuado.
      - Rota vai permitir que a instituiçào nos avise que ela recebeu o pagamento.
+     - No mercado esse tipo de rota de confirmação é conhecida como Webhook, aonde iremos receber uma notificação de uma instituição financeira e como a instituição sabe qual é a rota que ela tem que enviar, eventualmente eles chamam essa funcionalidade de Webhook, pois, eles enviam essa informação quando eles já tem essa informação
 
 3. ROTA PARA VISUALIZAR AS INFORMAÇÕES DO PAGAMENTO
 
-   - 
+   - /payments/pix/<int:payment_id>
+     - Rota para trazer as informações de pagamento de maneira visual para o cliente.
+     [02:31]
+     - Rota que será estabelecido a conexão com o WebSockets
+

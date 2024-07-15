@@ -43,3 +43,21 @@
 
    - O uso do WebSockets proporciona uma experiência mais fluida e eficiente em notificações em tempo real
   
+
+## CRIAÇÃO DAS ROTAS
+
+1. ROTA DE CRIAÇÃO DE PAGAMENTO
+
+   - /payments/pix
+     - nesta rota de pagamentos, foi especificado o método(pix), porque quando falamos da parte de pagamentos, hoje nós temos sistemas que lidam com diversos tipos de pagamentos e então o que acontece, é que pode ter pagamentos em pix, por via de boletos, pagamento por cartão de crédito e muitos outros métodos e se caso for criado tudo dentro de uma rota só, o que pode acontecer, é que vai ser criado uma dependência entre os sistemas e as rotas, deta forma, quando for adicionar um novo método de pagamento, vai ser obrigado a alterar a rota criada, criando assim um acoplamento entre os meios de pagamento
+     - Para evitar essa situação, é muito mais fácil criar novas rotas evidenciando o método de pagamento, pois, assim evita essa situação de acoplamento e assim evolui toda a aplicação sem deixar a desejar futuramente.
+
+2. ROTA PARA CONFIRMAÇÃO DO PAGAMENTO
+
+   - /payments/pix/confirmation
+     - para o método pix, toda vez que ele é efetuado/gerado, a instituição recebe a informação dizendo se esta tudo certo e que o pagamento foi efetuado.
+     - Rota vai permitir que a instituiçào nos avise que ela recebeu o pagamento.
+
+3. ROTA PARA VISUALIZAR AS INFORMAÇÕES DO PAGAMENTO
+
+   - 

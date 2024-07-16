@@ -1,10 +1,16 @@
 from flask import Flask, jsonify
+'''
+    permite que seja instanciado o DB em outro arquivo
+    e assim permite que seja modelado o model de pagamento em outra classe
+'''
 from repository.database import db
+from db_models.payment import Payment
 
 app = Flask(__name__)
 
 # CONFIGS PARA SQLITE -> DB EM ARQUIVOS
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SECRET_KEY'] = 'MY_SECRET_KEY_WEBSOCKET'
 db.init_app(app)
 
 

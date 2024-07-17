@@ -1,10 +1,12 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, send_file
 '''
     permite que seja instanciado o DB em outro arquivo
     e assim permite que seja modelado o model de pagamento em outra classe
 '''
 from repository.database import db
 from db_models.payment import Payment
+from datetime import datetime, timedelta
+from payments.pix import Pix
 
 app = Flask(__name__)
 
@@ -17,7 +19,37 @@ db.init_app(app)
 # ROTA PARA CRIAÇÃO DE UM PAGAMENTO
 @app.route('/payments/pix', methods=['POST'])
 def create_payment_pix():
-    return jsonify({'message': 'THE PAYMENT HAS BEEN CREATED.'})
+    data = request.get_json()
+
+    #validações
+    if 'value' not in data:
+        return jsonify({'message':'INVALID VALUE'}), 400
+    
+    expiration_date = datetime.now() + timedelta(minutes=30)
+
+    new_payment = Payment(
+        value=data['value'], 
+        expiration_date=expiration_date
+    )
+
+    pix_obj = Pix()
+    data_payment_pix = pix_obj.create_payment() # acesso ao bank_payment_id e o qr_code
+    new_payment.bank_payment_id = data_payment_pix['bank_payment_id']
+    new_payment.qr_code = data_payment_pix['qr_code_path']
+
+
+    db.session.add(new_payment)
+    db.session.commit()
+    
+    return jsonify({'message': 'THE PAYMENT HAS BEEN CREATED.',
+                    'payment': new_payment.to_dict()})
+
+# ROTA PARA RETORNAR IMAGEM(QRCODE) PARA O USUARIO
+@app.route('/payments/pix/qr_code/<file_name>', methods=['GET'])
+def get_image(file_name):
+    return send_file(f'static/img/{file_name}.png', mimetype='image/png')
+
+
 
 # ROTA PARA CONFIRMAÇÃO DO PAGAMENTO
 @app.route('/payments/pix/confirmation', methods=['POST'])

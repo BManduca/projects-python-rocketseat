@@ -63,6 +63,24 @@
 
    - /payments/pix/<int:payment_id>
      - Rota para trazer as informações de pagamento de maneira visual para o cliente.
-     [02:31]
      - Rota que será estabelecido a conexão com o WebSockets
 
+## [UUID](https://docs.python.org/3/library/uuid.html)
+
+- Identificador único e universal
+- Existem diversas formas de gerar o UUID, como por exemplo: 
+  - No Host ID da máquina no tempo atual, ajudando assim a ter menos conflitos
+    - uuid.uuid1()
+  - Podemos gerar um UUID usando o MD5 hash de um UUID de namespace e um nome
+    - uuid.uuid3(uuid.NAMESPACE_DNS, 'python.org')
+  - Podemos gerar usando o UUID random
+    - uuid.uuid4()
+  - Podemos gerar com base em alguma mensagem
+
+## Virtualenv
+
+- **instalação**: pip3 install virtualenv
+- **Create and Use Virtual Environments**
+  - python3 -m venv .venv
+- **Activate a virtual environment**
+  - source .venv/bin/activate

@@ -84,3 +84,36 @@
   - python3 -m venv .venv
 - **Activate a virtual environment**
   - source .venv/bin/activate
+
+## [Template](https://github.com/GabrielCasemiro/py-payment) Página de Pagamento
+
+- Template da página de pagamentos em HTML e CSS, modelado pela equipe da Rocketseat
+
+## Retornando uma página (HTML)
+
+- Neste ponto estaremos retornando um página dentro do projeto, para retornar as informações para o usuário
+- Porém, estaremos mostrando tanto o front-end quanto o back-end no mesmo lugar
+  - Isto está sendo feito, para que possa ser visualizado de maneira única o funcionamento do WebSocket
+  - Mas em uma versão ao qual teremos uma API dedicada somente para isso, provavelmente terá um front-end separado, que vai fazer a comunicação com o back-end, para que assim seja feita a confirmação.
+
+- Por mais que tudo esteja sendo feito dentro da mesma aplicação, mas o funcionamento é exatamento o mesmo.
+
+- Para retornar o template que clonamos, iremos utilizar uma função do Flask chamada render_template() e passar como parâmetro o endereço do arquivo(página) dentro do repositório templates que criamos.
+
+- Para importar toda a estilização da página, estaremos utilizando o projeto que já esta incorporado dentro do Flask, ao qual projeto se chama jinja2
+  - Para utilizar marcações precisamos utilizar -> {{}}
+  - Função que iremos utilizar para chamar neste caso as estilizações é o url_for(), ao qual recebe dois parâmetros
+    - aonde o primeiro é a pasta
+    - segundo o arquivo em si
+    - resultando no seguite formato -> {{ url_for('static', filename = 'css/styles.css') }}
+
+## Conexão Cliente x Servidor
+
+- Para essa conexão aconteceer é preciso criar uma rota que permita o cliente s conectar com o nosso servidor
+- [Flask-SocketIO](https://flask-socketio.readthedocs.io/en/latest/)
+  - Biblioteca que permite criar a rota que comentamos e que os clientes consigam se conectar
+
+- Lembramos que as informações podem ser enviadas de forma bidirecional, tanto cliente pode enviar para o servidor, quanto o servidor pode enviar para o cliente.
+- Mas porque tudo isso?
+  - Basicamente quando o cliente realzar o pagamento, iremos notificar o mesmo que o pedido foi pago, ou seja, o pagamento foi detectado e pago com sucesso em tempo real.
+  

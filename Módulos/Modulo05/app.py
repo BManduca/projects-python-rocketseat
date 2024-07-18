@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, render_template
 '''
     permite que seja instanciado o DB em outro arquivo
     e assim permite que seja modelado o model de pagamento em outra classe
@@ -7,6 +7,7 @@ from repository.database import db
 from db_models.payment import Payment
 from datetime import datetime, timedelta
 from payments.pix import Pix
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 
@@ -14,6 +15,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = 'MY_SECRET_KEY_WEBSOCKET'
 db.init_app(app)
+socketio = SocketIO(app)
 
 
 # ROTA PARA CRIAÇÃO DE UM PAGAMENTO
@@ -59,8 +61,22 @@ def pix_confirmation():
 # ROTA PARA GERAR INFORMAÇÕES DE PAGAMENTO
 @app.route('/payments/pix/<int:payment_id>', methods=['GET'])
 def payment_pix_page(payment_id):
-    return 'PAGAMENTO PIX'
+    payment = Payment.query.get(payment_id)
 
+
+
+    return render_template(
+        'payment.html',
+        payment_id = payment.id,
+        value = payment.value,
+        host = 'http://127.0.0.1:8000/',
+        qr_code = payment.qr_code
+    )
+
+# WebSockets
+@socketio.on('connect') # aguardar um evento
+def handle_connect():
+    print('CLIENT CONNECTED TO THE SERVER!')
 
 if __name__ == '__main__':
-    app.run(port=8000, debug=True)
+    socketio.run(app, port=8000, debug=True)

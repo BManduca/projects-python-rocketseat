@@ -117,3 +117,8 @@
 - Mas porque tudo isso?
   - Basicamente quando o cliente realzar o pagamento, iremos notificar o mesmo que o pedido foi pago, ou seja, o pagamento foi detectado e pago com sucesso em tempo real.
   
+## Notificando o cliente com pagamento confirmado
+
+- Através do Socketio, tem uma função chamada emit(), que basicamente emite uma notificação para todos os clientes conectados.
+- Na aplicação que estamos constuindo, iremos utilizar esta função e ao mesmo tempo passar uma mensagem de maneira específica ao pagamento que foi realizado, através do id do pagamento.
+- Para uma experiência em tempo real, utilizaremos o método location.reload(), para atualizar a página assim que o pagamento for confirmado.

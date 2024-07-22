@@ -122,3 +122,20 @@
 - Através do Socketio, tem uma função chamada emit(), que basicamente emite uma notificação para todos os clientes conectados.
 - Na aplicação que estamos constuindo, iremos utilizar esta função e ao mesmo tempo passar uma mensagem de maneira específica ao pagamento que foi realizado, através do id do pagamento.
 - Para uma experiência em tempo real, utilizaremos o método location.reload(), para atualizar a página assim que o pagamento for confirmado.
+
+
+## Aplicação de testes unitários
+
+- Ao tentarmos acessar dentro do teste, por exemplo a parte se salvar a imagem do qrcode que foi gerada para pagamento, dará um pequeno problema, aonde não será encontrado o diretorio e quando tentamos criar um arquivo fora do contexto do Flask, justamente a pasta não será encontrada, pois, ele estará tentando achar esta pasta dentro da pasta de test.
+- para solucionar essa questão, como por exemplo dentro do pix, estamos passando um caminho relativo, desta forma, precisamos estar dentro do contexto da aplicação Flask para que possamos encontrar a pasta static (pata criada para armazenar arquivos de estilização e imagens desta aplicação), presente na raiz da aplicação e o que possamos fazer para arrumar essa parte do test, é passar um diretorio base, para que a aplicação possa encontrar o diretorio procurado.
+- Como na criação do pagamento é retorno tanto o bank_payment_id quanto o qr_code_path, na hora de implementar o test, é preciso validar se essas informações são rertonadas corretamente, da seguinte forma:
+
+    >
+      assert 'bank_payment_id' in payment_info
+      assert 'qr_code_path' in payment_info
+
+- Para verificar se a imagem para o pagamento foi gerada e salva corretamente, dentro do teste, podemos aplicar da seguinte forma:
+
+    >
+      qr_code_path = payment_info['qr_code_path']
+      assert os.path.isfile(f'../static/img/{qr_code_path}.png')

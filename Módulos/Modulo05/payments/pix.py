@@ -7,7 +7,7 @@ class Pix():
     def __init__(self):
         pass
 
-    def create_payment(self):
+    def create_payment(self, base_dir=''):
         '''
             criando um ID que simula o pagamento na instituição financeira
             o random uuid retorna um objeto e para converter o mesmo, basta usar str(), 
@@ -22,7 +22,7 @@ class Pix():
         img = qrcode.make(hash_payment)
 
         # save image -> archive png
-        img.save(f'static/img/qr_code_payment_{bank_payment_id}.png')
+        img.save(f'{base_dir}static/img/qr_code_payment_{bank_payment_id}.png')
 
         return {
             'bank_payment_id': bank_payment_id,

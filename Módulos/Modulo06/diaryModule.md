@@ -18,3 +18,10 @@
   - Para trabalhar com projetos maiores torna-se necessário modularizar a aplicação, separando assim as responsabilidades em arquivos diferentes.
   - No Flask, esse conceito é chamado Blueprints
   - Blueprints são aplicações em Flask que se acoplam em uma aplicação principal.
+
+
+## Testes unitários
+
+- A idéia em si é criar funções de testes que verifiquem o comportamento
+correto de partes específicas do projeto.
+- Uso da palavra 'assert' -> Comando ou palavra reservada no python em que vai ser testado a veracidade do que foi implementado logo a frente.

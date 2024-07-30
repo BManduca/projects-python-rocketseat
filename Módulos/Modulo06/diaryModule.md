@@ -37,3 +37,15 @@ correto de partes específicas do projeto.
           'number': 1
       })
 - Basicamente os testes unitários eles vem para ajudar a ter uma qualidade de código, pois, para qualquer alteração por mais mínima que seja, ira passar pelos testes e caso tenha divergência(s) será barrado, gerando assim uma análise por parte de quem estará realizando a execução.
+
+## CALCULADORAS
+
+- Na calculadora 02, estaremos utilizando a lib Numpy, que é uma pacote fundamental no quesito de computação ciêntifica com o python.
+- Para realizar o desvio padrão, como mencionado na explicação do projeto da calculadora02, estaremos utilizando o método numpy.std e ele possui vários parâmetros.
+
+
+## PADRÕES DE PROJETO / PROJETOS ESTRUTURAIS
+
+- [FACADE]('https://refactoring.guru/pt-br/design-patterns/facade')
+  - Padrão de projeto estrutural que fornece uma interface simplificada para uma biblioteca, um framework ou qualquer conjunto complexo de classes.
+  

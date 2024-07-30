@@ -25,3 +25,15 @@
 - A idéia em si é criar funções de testes que verifiquem o comportamento
 correto de partes específicas do projeto.
 - Uso da palavra 'assert' -> Comando ou palavra reservada no python em que vai ser testado a veracidade do que foi implementado logo a frente.
+- Aqui para os testes que estaremos trabalhando, podemos utilizar um elemento controlado para trabalho, que chamamos de Mock e dentro do arquivo de teste, criamos uma classe da seguinte forma:
+    >
+      class MockRequest:
+        def __init__(self, body: Dict) -> None:
+            self.json = body
+  - Aonde passamos o body (Dict) como parâmetro e fazemos o self.json, receber o body
+- Logo em seguida, dentro da função de test_calculate, que criamos, definimos um mock_request, ao qual vai receber a chamada da class que criamos, passando o body, com um valor number definido, simplesmente neste primeiro momento para teste
+    >
+      mock_request = MockRequest(body={
+          'number': 1
+      })
+- Basicamente os testes unitários eles vem para ajudar a ter uma qualidade de código, pois, para qualquer alteração por mais mínima que seja, ira passar pelos testes e caso tenha divergência(s) será barrado, gerando assim uma análise por parte de quem estará realizando a execução.

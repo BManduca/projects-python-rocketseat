@@ -49,3 +49,6 @@ correto de partes específicas do projeto.
 - [FACADE]('https://refactoring.guru/pt-br/design-patterns/facade')
   - Padrão de projeto estrutural que fornece uma interface simplificada para uma biblioteca, um framework ou qualquer conjunto complexo de classes.
   
+## Injeção de depedências
+
+- Basicamente é fazer a chamada de uma classe dentro da outra, ou seja, que ao criar uma classe, nós conseguimos definir a construção de outras classes.

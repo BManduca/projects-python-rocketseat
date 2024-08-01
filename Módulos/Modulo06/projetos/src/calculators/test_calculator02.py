@@ -29,7 +29,7 @@ def test_calculate_integration():
 
 def test_calculate():
 
-    mock_request = MockRequest( body={ 'numbers': [ 7.24, 5.17, 9.09 ] } )
+    mock_request = MockRequest( body={ 'numbers': [ 2.12, 4.62, 1.32 ] } )
     
     # testing isolated behavior Calculator02
     driver = MockDriverHandler()

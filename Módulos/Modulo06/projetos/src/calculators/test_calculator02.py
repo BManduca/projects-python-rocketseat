@@ -1,26 +1,42 @@
 from .calculator02 import Calculator2
-from typing import Dict
+from src.drivers.numpy_handler import NumpyHandler
+from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from typing import Dict, List
+import numpy
 
 class MockRequest:
     def __init__(self, body: Dict) -> None:
         self.json = body
 
-def test_calculate():
+class MockDriverHandler(DriverHandlerInterface):
+    def __init__(self) -> None:
+        self.__np = numpy
 
-    mock_request = MockRequest(body={
-        'numbers': [
-            2.34,
-            5.67,
-            8.09
-        ]
-    })
+    def standard_derivation(self, numbers: List[float]) -> None:
+        return self.__np.std(numbers)
 
-    calculator02 = Calculator2()
+# teste Integração entre NumpyHandler e Calculator02
+def test_calculate_integration():
+
+    mock_request = MockRequest( body={ 'numbers': [ 2.34, 5.67, 8.09 ] } )
+    
+    driver = NumpyHandler()
+    calculator02 = Calculator2(driver)
     formated_response = calculator02.calculate(mock_request)
-    print()
-    print(formated_response)
 
     assert isinstance(formated_response, dict)
     assert formated_response == {'data': {'Calculator': 2, 'result': 0.05}}
+
+def test_calculate():
+
+    mock_request = MockRequest( body={ 'numbers': [ 7.24, 5.17, 9.09 ] } )
+    
+    # testing isolated behavior Calculator02
+    driver = MockDriverHandler()
+    calculator02 = Calculator2(driver)
+    formated_response = calculator02.calculate(mock_request)
+
+    assert isinstance(formated_response, dict)
+    assert formated_response == {'data': {'Calculator': 2, 'result': 0.07}}
 
     

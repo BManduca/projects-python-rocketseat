@@ -26,7 +26,7 @@ class Notificator:
         self.__notification_sender = notification_sender
 
     def send(self, message: str) -> None:
-        # validacao de dados
+        # realizar validacao de dados
         self.__notification_sender.send_notification(message)
 
 # obj = EmailNotificationSender()

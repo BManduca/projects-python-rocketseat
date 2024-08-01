@@ -48,6 +48,13 @@ correto de partes específicas do projeto.
 
 - [FACADE]('https://refactoring.guru/pt-br/design-patterns/facade')
   - Padrão de projeto estrutural que fornece uma interface simplificada para uma biblioteca, um framework ou qualquer conjunto complexo de classes.
+
+## Interfaces
+
+- Estrutura de dados
+- Python não tem uma especíe bem definida que se chama 'Interfaces', mas podemos utilizar as funcionalidades
+de uma biblioteca chamada [abc](https://docs.python.org/3/library/abc.html) aonde podemos importar os métodos abc e abstractmethod
+- Classe de interface: Função de definir a regra de construção das demais classes em que ela é implementada
   
 ## Injeção de depedências
 

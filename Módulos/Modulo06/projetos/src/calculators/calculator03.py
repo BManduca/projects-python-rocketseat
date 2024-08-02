@@ -32,3 +32,5 @@ class Calculator3:
         input_data = body['numbers']
         return input_data
     
+    def calculate_variance(self, numbers: List[float]) -> float:
+        variance = self.__driver_handler

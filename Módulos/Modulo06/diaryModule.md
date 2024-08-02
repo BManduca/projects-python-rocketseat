@@ -59,3 +59,63 @@ de uma biblioteca chamada [abc](https://docs.python.org/3/library/abc.html) aond
 ## Injeção de depedências
 
 - Basicamente é fazer a chamada de uma classe dentro da outra, ou seja, que ao criar uma classe, nós conseguimos definir a construção de outras classes.
+
+## [Factory Design Pattern](https://medium.com/@deutnerg/como-usar-o-design-pattern-factory-em-python-2ff48a9094e5)
+
+- É um dos padrões mais comuns usados em programação orientado a objetos
+- Este padrão, se encarrega de criar onjetos sem expor a lógica de criação ao cliente
+e se utiliza de uma interface comum para referenciar o objeto criado
+- Ideia central: Fornecer uma interface para criar objetos por exemplo em uma superclasse,
+enquanto permite que subclasses alterem o tipo de objeto que será criado.
+- Exemplo:
+
+  - Definindo uma interface ou classe base para os objetos a serem criados:
+      >
+        from abc import ABC, abstractmethod
+
+        class Produto(ABC):
+            @abstractmethod
+            def operacao(self) -> str:
+                pass
+
+  - Crie classes concretas que implementem a interface ou classe base:
+
+      >
+        class ProdutoConcreto1(Produto)
+          def operacao(self) -> str:
+            return 'Resultado do ProdutoConcreto1'
+
+        class ProdutoConcreto2(Produto)
+          def operacao(self) -> str:
+            return 'Resultado do ProdutoConcreto2'
+
+  - Implemente a Factory que vai decidir qual classe concreta vai instanciar:
+
+      >
+        class Factory:
+          def criar_produto(self, tipo: str) -> Produto:
+            if tipo == 'Produto1':
+              return ProdutoConcreto1()
+            elif tipo == 'Produto2':
+              return ProdutoConcreto2()
+            else:
+              return ValueError('TIPO DE PRODUTO DESCONHECIDO!')
+
+  - Use a Factory para criar objetos:
+      >
+        if __name_- = "__main__":
+          factory = Factory()
+
+          produto1 = factory.criar_produto('Produto1')
+          print(produto1.operacao()) # Saída: Resultado do ProdutoConcreto1
+
+          produto2 = factory.criar_produto('Produto2')
+          print(produto2.operacao()) # Saída: Resultado do ProdutoConcreto2
+
+- ### Benefícios do Padrão Factory
+
+  - Desacoplamento: O cliente não precisa saber qual classe concreta ele vai instanciar
+
+  - Facilidade de manutenção: Adicionar novos produtos (classes concretas) não requer mudanças no código do cliente
+
+  - Responsabilidade única: A lógica de criação dos objetos é centralizada.

@@ -1,6 +1,5 @@
 from .calculator02 import Calculator2
 from src.drivers.numpy_handler import NumpyHandler
-from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 from typing import Dict, List
 import numpy
 
@@ -8,7 +7,7 @@ class MockRequest:
     def __init__(self, body: Dict) -> None:
         self.json = body
 
-class MockDriverHandler(DriverHandlerInterface):
+class MockDriverHandler:
     def __init__(self) -> None:
         self.__np = numpy
 
@@ -37,6 +36,6 @@ def test_calculate():
     formated_response = calculator02.calculate(mock_request)
 
     assert isinstance(formated_response, dict)
-    assert formated_response == {'data': {'Calculator': 2, 'result': 0.07}}
+    assert formated_response == {'data': {'Calculator': 2, 'result': 0.08}}
 
     

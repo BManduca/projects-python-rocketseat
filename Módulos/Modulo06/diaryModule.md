@@ -63,7 +63,7 @@ de uma biblioteca chamada [abc](https://docs.python.org/3/library/abc.html) aond
 ## [Factory Design Pattern](https://medium.com/@deutnerg/como-usar-o-design-pattern-factory-em-python-2ff48a9094e5)
 
 - É um dos padrões mais comuns usados em programação orientado a objetos
-- Este padrão, se encarrega de criar onjetos sem expor a lógica de criação ao cliente
+- Este padrão, se encarrega de criar objetos sem expor a lógica de criação ao cliente
 e se utiliza de uma interface comum para referenciar o objeto criado
 - Ideia central: Fornecer uma interface para criar objetos por exemplo em uma superclasse,
 enquanto permite que subclasses alterem o tipo de objeto que será criado.
@@ -119,3 +119,39 @@ enquanto permite que subclasses alterem o tipo de objeto que será criado.
   - Facilidade de manutenção: Adicionar novos produtos (classes concretas) não requer mudanças no código do cliente
 
   - Responsabilidade única: A lógica de criação dos objetos é centralizada.
+
+## Erros personalizados
+
+- Através de uma personalização no momento em que estamos efetuando a tratativa de erros, 
+é possível 'printar' em tela o resultado da expection que recebemos, da seguinte forma:
+
+    >
+      try:
+          print('Estou no bloco try')
+      except Exception as exception:
+          print('Estou no tratamento de erro')
+          print(str(exception))
+
+  - o exception que estamos dando o print agora, ele tem as mesmas propriedades que um 
+  objeto teria. 
+  - Podemos entender agora que através do exemplo acima, nos pegamos a informação de erro
+  que esta acontecendo aplicamos um print sobre o elemento que criamos
+
+- Mas se quisermos ir além, dentro dessa parte de tratativa de erros, nós podemos definir/criar nossos erros personalizados, da seguinte forma:
+    >
+      class HttpUnprocessableentityError(Exception):
+        def __init__(self, message: str) -> None:
+            super().__init__(message)
+            self.message = message
+            self.name = 'UnprocessableEntity'
+            self.status_code = 422
+
+      try:
+          print('ESTOU NO BLOCO TRY')
+          raise HttpUnprocessableentityError('ESTOU LANÇANDO A EXCEPTION!')
+      except Exception as exception:
+          print('\nESTOU NO TRATAMENTO DE ERRO!')
+          print(f'\nErro: {exception.name}')
+          print(f'Status_code: {exception.status_code}')
+
+  - Aqui definimos a mensagem de maneira especifica para o HTTP status_code 422, que significa UnprocessableEntity e aplicamos uma resposta da maneira como preferimos para o cliente.

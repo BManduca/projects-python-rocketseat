@@ -57,7 +57,7 @@ def logout():
 
 # REGISTER
 @app.route('/user', methods=['POST'])
-@login_required
+# @login_required
 def create_user():
     data = request.json
     username = data.get('username')
@@ -92,12 +92,13 @@ def read_user(id_user):
 def update_user(id_user):
     data = request.json
     user = User.query.get(id_user)
+    password = data.get('password')
 
     if id_user != current_user.id and current_user.role == 'user':
         return jsonify({'message': 'OPERAÇÃO NÃO PERMITIDA!'}), 403
     
     if user and data.get('password'):
-        user.password = data.get('password')
+        user.password = bcrypt.hashpw(str.encode(password), bcrypt.gensalt())
         db.session.commit()
 
         return jsonify({'message': f'USUÁRIO {id_user} ATUALIZADO COM SUCESSO!'})

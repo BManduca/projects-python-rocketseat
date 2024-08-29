@@ -5,6 +5,10 @@ from src.main.factories.calculator03_factory import calculator03_factory
 
 from src.errors.error_controller import handle_errors
 
+'''
+   nomeando as rotas relacionadas as calculadoras apartir 
+   do calc_route_bp 
+'''
 calc_route_bp = Blueprint('calc_routes', __name__)
 
 @calc_route_bp.route('/calculator/1', methods=['POST'])

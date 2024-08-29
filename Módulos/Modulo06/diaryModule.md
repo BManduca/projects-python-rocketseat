@@ -3,6 +3,7 @@
 ## Typing
 
 - Basicamente é um meio para indicar os tipos esperados para os elementos de entrada e o tipo de retorno da função.
+- [Docs typing]('https://docs.python.org/3/library/typing.html')
 
 ## Method public vs. Mehotd private
 

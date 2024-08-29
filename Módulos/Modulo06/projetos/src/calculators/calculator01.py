@@ -16,7 +16,7 @@ class Calculator1:
         - A terceira parte se mantem no mesmo valor
 
         Por fim, é somado esses 3 valores e entregado o resultado.
-    '''
+    ''' 
 
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
         body = request.json

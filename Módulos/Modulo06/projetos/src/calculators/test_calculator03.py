@@ -18,12 +18,12 @@ class MockRequest:
 class MockDriverHandlerError:
 
     def variance(self, numbers: List[float]) -> float:
-        return 3
+        return 1000000
     
 class MockDriverHandler:
 
     def variance(self, numbers: List[float]) -> float:
-        return 1000000
+        return 100
 
 
 def test_calculate_with_variance_error():
@@ -33,12 +33,12 @@ def test_calculate_with_variance_error():
     with raises(Exception) as except_info:
         calculator03.calculate(mock_request)
 
-    assert str(except_info.value) == 'Falha no processo: Variância é menor que a multiplicação!'
+    assert str(except_info.value) == 'Falha no processo: Variância é maior que a multiplicação!'
 
 def test_calculate():
-    mock_request = MockRequest({ "numbers": [ 1, 1, 1, 1, 100 ] })
+    mock_request = MockRequest({ "numbers": [ 1, 1, 1, 1, 120 ] })
     calculator03 = Calculator3(MockDriverHandler())
     
     response = calculator03.calculate(mock_request)
 
-    assert response == {'data': {'Calculator': 3, 'value': 1000000, 'success': True}}
+    assert response == {'data': {'Calculator': 3, 'value': 100, 'success': True}}

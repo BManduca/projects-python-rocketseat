@@ -11,7 +11,67 @@
 
     OBS.: PARA O CÁCULO DE VARIÂNCIA, UTILIZE O MÉTODO 'VAR' DA LIB numpy
 
+    
+Colors em python, este código se inicia com \033[
+
+0 => none (sem estilo)
+1 => bold(negrito)
+2 => Fraco
+3 => itálico
+4 => underline (sublinhado)
+7 => negative (inverter as configurações Fundo vai pra letra e letra fundo)
+
+----------------------------------------------------------------
+Cores para o texto:
+30 => Branco
+31 => Vermelho
+32 => Verde
+33 => Amarelo
+34 => Azul
+35 => Magenta
+36 => Ciano
+37 => Cinza
+
+----------------------------------------------------------------
+Cores para o fundo:
+40 = Branco
+41 = Vermelho
+42 = Verde
+43 = Amarelo
+44 = Azul
+45 = Magenta
+46 = Ciano
+47 = Cinza
+
+----------------------------------------------------------------
+
+Exemplo:
+Teste ----> "\033[0;30;41mTeste\033[m"
+
+Teste ----> "\033[4;33;44mTeste\033[m"
+
+Teste ----> "\033[1;35;43mTeste\033[m"
+
+Teste ----> "\033[30;42mTeste\033[m"
+
+Teste ----> "\033[mTeste\033[m (padrão do terminal)"
+
+Teste ----> "\033[7;30mTeste\033[m (letra preta)"
 '''
+
+colors=('\033[m',      # 0 - sem cores
+        '\033[0;31m',  # 1 - vermelho
+        '\033[0;32m',  # 2 - verde
+        '\033[0;33m',  # 3 - amarelo
+        '\033[0;34m',  # 4 - azul
+        '\033[0;35m',  # 5 - roxo
+        '\033[7;30m'   # 6 - branco
+        )
+
+def imprimirMensagem(msg, cor=0):
+    print(colors[cor], end='')
+    print(f'{msg}')
+    print(colors[0], end='')
 
 from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 from flask import request as FlaskRequest
@@ -57,7 +117,10 @@ class Calculator3:
     def __verify_result(self, variance: float, multiplication: float) -> None:
 
         if variance < multiplication:
-            raise HttpBadRequestError('Falha no processo: Variância é menor que a multiplicação!')
+            # print('\nSUCESSO: Variância é menor que a multiplicação!')
+            imprimirMensagem('  ==> SUCESSO', 2)
+        else:
+            raise HttpBadRequestError('Falha no processo: Variância é maior que a multiplicação!')
         
 
     def __format_response(self, variance: float) -> Dict:

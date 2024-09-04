@@ -11,13 +11,15 @@
 - "Um módulo deve ter um e apenas um, motivo para alteração"
 - Um módulo deve ser especializado em um único assunto e possuir apenas uma única responsabilidade dentro do seu software
 - "Um módulo é apenas um conjunto coeso de funções e estrutura de dados"
+- O SRP destaca a importância de uma classe ter uma única razão para mudar. Isso significa que uma classe deve ter apenas uma responsabilidade.
 
 <br />
 
 ## O - Open/Closed Principle (OCP) | Princípio Aberto/Fechado
 
 - "Um artefato de software deve estar aberto para extensão, mas fechado para modificação"
-- "Em outras palavras, o comporamento de um artefato de software deve ser extensível, sem ter que modificar esse artefato."
+- "Em outras palavras, o comportamento de um artefato de software deve ser extensível, sem ter que modificar esse artefato."
+- O OCP enfatiza que uma classe deve estar aberta para extensão, mas fechada para modificação. Em outras palavras, você pode adicionar novos comportamentos sem alterar o código existente.
   
 <br />
 

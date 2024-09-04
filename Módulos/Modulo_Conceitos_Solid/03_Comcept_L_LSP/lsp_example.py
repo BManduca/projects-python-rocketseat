@@ -5,6 +5,18 @@ class Animal:
   def  andar(self):
     print('O animal está andando na jaula.')
 
+class Ave():
+  def voar(self):
+    pass
+
+class Pato(Ave):
+  def voar(self):
+    print('O pato é uma Ave e pode voar!')
+
+class Pinguim(Ave):
+  def voar(self):
+    raise Exception('Os pinguins são Aves, porém, não podem voar!')
+
 class Felino(Animal):
   def lamber(self):
     print('O felino está lambendo seu pelo.')

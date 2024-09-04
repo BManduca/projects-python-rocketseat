@@ -138,7 +138,6 @@ class Exame:
     
 
 exame_sangue = Exame("sangue")
-print(exame_sangue)
 exame_raio_x = Exame("raio-x")
 
 aprovar_exame_sangue = AprovarExameSangue()

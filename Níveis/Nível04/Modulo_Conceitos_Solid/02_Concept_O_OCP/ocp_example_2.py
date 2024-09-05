@@ -12,7 +12,7 @@ class Pagamento(ABC):
 class PagamentoCartao(Pagamento):
 
   def realizar_pagamento(self, valor):
-    print(f"Pagando com cartão: {valor}")
+    print(f"\nPagando com cartão: {valor} Reais")
 
   def validar_pagamento(self):
 
@@ -22,10 +22,10 @@ class PagamentoCartao(Pagamento):
       print('\n << RESPOSTA INCORRETA >> ')
       approved = str(input('COMPRA CARTÃO FOI APROVADA? (S/N)  ')).upper()
 
-      if approved == 'S':
-        print('\n << COMPRA CARTÃO APROVADA >> ')
-      else:
-        print('\n << COMPRA CARTÃO REJEITADA >> ')
+    if approved == 'S':
+      print('\n << COMPRA CARTÃO APROVADA >> ')
+    else:
+      print('\n << COMPRA CARTÃO REJEITADA >> ')
 
 class PagamentoBoleto(Pagamento):
 
@@ -46,6 +46,8 @@ class PagamentoBoleto(Pagamento):
         print('O BOLETO ESTÁ VENCIDO!')
 
 
-value = int(input('INSIRA O VALOR A SER PAGO: '))
+value = float(input('INSIRA O VALOR A SER PAGO: '))
 
 pagamento_cartao = PagamentoCartao()
+pagamento_cartao.validar_pagamento()
+pagamento_cartao.realizar_pagamento(value)

@@ -32,3 +32,8 @@
 - Desativando o ambiente virtual => basta digitar deactivate
 - Para armazenar todas as libs e versões que estou utilizando no meu ambiente virtual
   - venv/bin/pip3 freeze > requirements.txt
+
+## Pylint
+- Ele busca analisar erros, impõe um padrão de codificação, procura por code smells e pode fazer sugestões sobre como o código pode ser refatorado.
+  - code smells: São características no código-fonte de um programa que podem indicar um problema mais profundo. Eles podem ser um sinal de que as boas práticas de design não foram aplicadas, mas não necessariamente um bug no sistema.
+- Para separar todas as regrar que o pylint possui, iremos aplicar o seguinte comando: pylint --generate-rcfile > .pylintrc

@@ -37,3 +37,7 @@
 - Ele busca analisar erros, impõe um padrão de codificação, procura por code smells e pode fazer sugestões sobre como o código pode ser refatorado.
   - code smells: São características no código-fonte de um programa que podem indicar um problema mais profundo. Eles podem ser um sinal de que as boas práticas de design não foram aplicadas, mas não necessariamente um bug no sistema.
 - Para separar todas as regrar que o pylint possui, iremos aplicar o seguinte comando: pylint --generate-rcfile > .pylintrc
+- Para que não ocorra de ter arquivos sem a configuração do Pylint no projeto, será aplicado uma proteção para o nosso código, aonde o pylint irá passar por todo o projeto identificando o que não está de acordo com a formatação e assim, podendo ser corrigido
+  - Para isso, iremos adicionar ao projeto aqui, relacionado a pasta Git, um Hook
+  - [Pre-commit](https://pre-commit.com/)
+    - Em outras palavras, Git hook scripts são úteis para identificar problemas simples antes do envio para o 'code review'. Os hooks são executados em cada commit para apontar automaticamente problemas no código, como ponto e vírgula ausente, espaços em branco à direita e instruções de depuração. Ao apontar esses problemas antes da revisão do código, isso permite que um revisor de código se concentre na arquitetura de uma mudança sem perder tempo com detalhes triviais de estilo.

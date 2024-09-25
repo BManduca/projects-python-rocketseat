@@ -1,7 +1,10 @@
+from os import system
+from time import sleep
 from flask import Flask, jsonify, request
 from models.user import User
 from database import db
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required
+from base_style_project import print_text_entralized
 import bcrypt
 
 app = Flask(__name__)
@@ -125,4 +128,9 @@ def delete_user(id_user):
     return jsonify({'message': 'USUÁRIO NÃO ENCONTRADO!'}), 404
 
 if __name__ == '__main__':
-     app.run(port=8000, debug=True)
+    sleep(5)
+    system('clear')
+    print_text_entralized("\nCopyright ©2024 | Brunno Manduca, todos os direitos reservados.\n", 3)
+    print_text_entralized('\nAplicação rodando com sucesso! \n', 3)
+    app.run(port=8000, debug=True)
+    

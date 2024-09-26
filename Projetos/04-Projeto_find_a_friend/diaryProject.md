@@ -22,4 +22,60 @@
     - Separando agora responsabilidades na integração com o banco de dados, iremos criar mais 3 pastas:
       - Settings: com o objetivos de definir conexões e afins.
       - Entities: com o objetivo de definir as entidades, ou seja, o espelhamento com o banco de dados.
-      - Repositories: Serão os repositórios, ou seja, as açÕes que iremos fazer no banco.
+      - Repositories: Serão os repositórios, ou seja, as ações que iremos fazer no banco.
+
+## Interação SQLAlchemy com DB
+![](./assets/diagram_sqlalchemy_db_interaction.png)
+- Primeiramente é criado uma engine de conexão (criar a Conexão com o DB)
+- Depois é aberto uma sessão, ou seja, essa sessão vai ser exatamente o momento em que estamos disponíveis a fazer ações no DB e dentro das sessões de fato, iremos conseguir fazer alguns comandos SQL no DB
+
+## Testes unitários
+- Estaremos utilizando aqui no projeto, a lib [Pytest](https://pypi.org/project/pytest/)
+- [Documentação](https://docs.pytest.org/en/stable/#)
+- instalação: pip3 install -U pytest
+
+## Entities
+- Para o SQLAlchemy saber que temos as tabelas people e pets, é preciso definir os elementos, essas tabelas para nosso código, eles precisam de alguma forma enxergar que existem essas tabelas.
+- É o espelho de todos os elementos de armazenamento
+- Neste projeto, os elementos de armazenamento serão people e pets
+- Basicamente a definição/criacão das entities people e pets, será baseado nas informações presentes dentro do arquivo schema.sql
+  - people.py
+    >
+        from sqlalchemy import Column, String, BIGINT, ForeignKey
+        from src.models.sqlite.settings.base import Base
+
+        class PeopleTable(Base):
+            __tablename__ = 'people'
+
+            id = Column(BIGINT, primary_key=True)
+            first_name = Column(String, nullable=False)
+            last_name = Column(String, nullable=False)
+            age = Column(BIGINT, nullable=False)
+            pet_id = Column(BIGINT, ForeignKey('pets.id'))
+
+            def __pepr__(self):
+                return f'People [first_name={self.first_name}, last_name={self.last_name}, pet_id={self.pet_id}]'
+
+  - pets.py
+    >
+        from sqlalchemy import Column, String, BIGINT
+        from src.models.sqlite.settings.base import Base
+
+        class PetsTable(Base):
+            __tablename__ = 'pets'
+
+            id = Column(BIGINT, primary_key=True)
+            name = Column(String, nullable=False)
+            type = Column(String, nullable=False)
+
+            """ 
+                método especial, para que se ocorra em algum momento
+                o print em tela de um elemento da tabela pets, virá da forma definida em repr
+            """
+            def __repr__(self):
+                return f'Pets [name={self.name}, type={self.type}]'
+
+      
+## Métodos especiais
+
+- Nesta parte é discutido sobre implementação de funcionalidades elegantes em Python, como o uso do bloco with para tratamento de erros e conexões em banco de dados.

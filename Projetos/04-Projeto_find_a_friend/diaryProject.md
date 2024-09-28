@@ -79,3 +79,9 @@
 ## Métodos especiais
 
 - Nesta parte é discutido sobre implementação de funcionalidades elegantes em Python, como o uso do bloco with para tratamento de erros e conexões em banco de dados.
+
+## Repositórios e ações
+- Pasta repositories do nosso projeto, vai ter a responsabilidade de mexer com as ações do nosso banco de dados
+  - É nesta pasta que serão feitas as seleções, as inserções, as ações de modo geral no banco de dados.
+
+- A ação de deletar(delete), atualizar(update) ou de inserção(insert) no banco de dados, necessita de uma ação muito importante, no SqlAlchemy é necessário efetuar um commit do banco de dados basicamente, ou seja, toda a alteração precisa ser salva

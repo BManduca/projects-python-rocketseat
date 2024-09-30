@@ -85,3 +85,17 @@
   - É nesta pasta que serão feitas as seleções, as inserções, as ações de modo geral no banco de dados.
 
 - A ação de deletar(delete), atualizar(update) ou de inserção(insert) no banco de dados, necessita de uma ação muito importante, no SqlAlchemy é necessário efetuar um commit do banco de dados basicamente, ou seja, toda a alteração precisa ser salva
+
+## Testes Unitários em Repositórios
+
+- Teste de integração: São uma parte do ciclo de desenvolvimento de software. Eles visam verificar se diferentes módulos ou componentes do sistema funcionam bem quando combinados. Ao contrário dos testes unitários, que focam em partes isoladas do código, os testes de integração verificam a comunicação entre essas partes.
+
+- ### Características dos Testes de Integração
+  - Validação de interfaces: Testam se as interfaces entre módulos funcionam como esperado.
+  - Validação de dependências: Garatem que módulos dependentes se comunicam corretamente.
+  - Ambiente realista: Muitas vezes são executadas em um ambiente mais proxímo do real para simular a interação real entre os componentes.
+
+
+## Lib mock-alchemy
+
+- Esta lib fornece uma maneira fácil de simular uma sessão do SQLAlchemy em testes unitários, preservando a capacidade de fazer asserts mais bem fomuladas ou sensatas.

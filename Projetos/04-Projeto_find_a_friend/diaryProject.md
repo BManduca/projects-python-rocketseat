@@ -99,3 +99,7 @@
 ## Lib mock-alchemy
 
 - Esta lib fornece uma maneira fácil de simular uma sessão do SQLAlchemy em testes unitários, preservando a capacidade de fazer asserts mais bem fomuladas ou sensatas.
+
+## Pasta Controllers
+
+- Diretório para armazenar e separar a lódiga de negócio, as funcionalidades do sistema.

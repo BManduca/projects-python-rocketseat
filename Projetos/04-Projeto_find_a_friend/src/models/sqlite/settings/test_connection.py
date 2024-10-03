@@ -2,6 +2,7 @@ import pytest
 from sqlalchemy.engine import Engine
 from .connection import db_connection_handler
 
+
 # intuito de conhecimento(educativo)
 @pytest.mark.skip(reason="interação com o banco de dados.")
 # test integration with DB

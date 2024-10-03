@@ -1,4 +1,4 @@
-''''
+"""'
   exc_type: O tipo da exceção que ocorreu, se houver.
   Se não ocorreu nenhuma exceção, este parâmetro será None.
 
@@ -7,15 +7,16 @@
 
   exc_tb: O traceback (rastreamento de pilha / memória de dados) associado a exceção que ocorreu, se houver.
   Se não ocorreu nenhuma exceção, este parâmetro será None.
-'''
+"""
+
 
 class AlgumaCoisa:
     def __enter__(self):
-        print('Estou entrando...')
+        print("Estou entrando...")
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print('Estou saindo...')
+        print("Estou saindo...")
 
 
 with AlgumaCoisa() as something:
-    print('Estou no meio...')
+    print("Estou no meio...")
